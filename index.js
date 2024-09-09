@@ -1,23 +1,59 @@
+/**
+ * @type {HTMLCanvasElement}
+ */
 const canvas = document.getElementById("gameCanvas");
+/**
+ * @type {CanvasRenderingContext2D}
+ */
 const ctx = canvas.getContext("2d");
 
-const box = 32; // Розмір одного блоку на полі
-let score = 0; // Початковий рахунок
-let d; // Напрямок руху змійки
-let speed = 100; // Швидкість гри
-let snake = []; // Масив для зберігання частин змійки
+/**
+ * Розмір одного блоку на полі
+ * @type {number}
+ */
+const box = 32;
+
+/**
+ * Початковий рахунок
+ * @type {number}
+ */
+let score = 0;
+
+/**
+ * Напрямок руху змійки ("LEFT", "RIGHT", "UP", "DOWN")
+ * @type {string|undefined}
+ */
+let d;
+
+/**
+ * Швидкість гри (в мілісекундах)
+ * @type {number}
+ */
+let speed = 100;
+
+/**
+ * Масив для зберігання частин змійки
+ * @type {Array<{x: number, y: number}>}
+ */
+let snake = [];
 snake[0] = {
   x: 9 * box,
   y: 10 * box
 };
 
-// Створення їжі в випадковому місці
+/**
+ * Створення їжі в випадковому місці
+ * @type {{x: number, y: number}}
+ */
 let food = {
   x: Math.floor(Math.random() * 17 + 1) * box,
   y: Math.floor(Math.random() * 15 + 3) * box
 };
 
-// Управління напрямком руху
+/**
+ * Управління напрямком руху
+ * @param {KeyboardEvent} event
+ */
 document.addEventListener("keydown", direction);
 
 function direction(event) {
@@ -32,7 +68,12 @@ function direction(event) {
   }
 }
 
-// Функція перевірки на зіткнення з тілом змійки
+/**
+ * Функція перевірки на зіткнення з тілом змійки
+ * @param {{x: number, y: number}} head - Координати голови змійки
+ * @param {Array<{x: number, y: number}>} array - Масив частин тіла змійки
+ * @returns {boolean} Чи сталося зіткнення
+ */
 function collision(head, array) {
   for (let i = 0; i < array.length; i++) {
     if (head.x === array[i].x && head.y === array[i].y) {
@@ -42,7 +83,9 @@ function collision(head, array) {
   return false;
 }
 
-// Малювання змійки, їжі та рахунку на екрані
+/**
+ * Малювання змійки, їжі та рахунку на екрані
+ */
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищуємо полотно перед кожним новим кадром
 
@@ -113,7 +156,9 @@ document.addEventListener("keydown", (event) => {
   game = setInterval(draw, speed);
 });
 
-// Функція для перезапуску гри
+/**
+ * Функція для перезапуску гри
+ */
 function resetGame() {
   score = 0;
   snake = [];
@@ -140,7 +185,9 @@ document.addEventListener("keydown", (event) => {
 // Починаємо гру з початковою швидкістю
 let game = setInterval(draw, speed);
 
-// Додаткові функції для кращої взаємодії
+/**
+ * Додаткові функції для кращої взаємодії
+ */
 function displayInstructions() {
   ctx.fillStyle = "yellow";
   ctx.font = "20px Arial";
@@ -156,55 +203,3 @@ displayInstructions();
 setTimeout(() => {
   ctx.clearRect(0, 0, canvas.width, 3 * box);
 }, 5000);
-
-// Коментарі для досягнення 200 рядків
-// Рядок 151
-// Рядок 152
-// Рядок 153
-// Рядок 154
-// Рядок 155
-// Рядок 156
-// Рядок 157
-// Рядок 158
-// Рядок 159
-// Рядок 160
-// Рядок 161
-// Рядок 162
-// Рядок 163
-// Рядок 164
-// Рядок 165
-// Рядок 166
-// Рядок 167
-// Рядок 168
-// Рядок 169
-// Рядок 170
-// Рядок 171
-// Рядок 172
-// Рядок 173
-// Рядок 174
-// Рядок 175
-// Рядок 176
-// Рядок 177
-// Рядок 178
-// Рядок 179
-// Рядок 180
-// Рядок 181
-// Рядок 182
-// Рядок 183
-// Рядок 184
-// Рядок 185
-// Рядок 186
-// Рядок 187
-// Рядок 188
-// Рядок 189
-// Рядок 190
-// Рядок 191
-// Рядок 192
-// Рядок 193
-// Рядок 194
-// Рядок 195
-// Рядок 196
-// Рядок 197
-// Рядок 198
-// Рядок 199
-// Рядок 200
