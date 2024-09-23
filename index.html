@@ -1,141 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
-    <style>
-        /* CSS Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GitHub Web Notifier</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" id="favicon" href="favicon.png">
+  </head>
+  <body>
 
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            margin-bottom: 10px;
-        }
-
-        nav ul {
-            list-style-type: none;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        section {
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            margin-bottom: 10px;
-            border-bottom: 2px solid #333;
-            padding-bottom: 5px;
-        }
-
-        .project {
-            margin-bottom: 15px;
-            padding: 10px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .project h3 {
-            margin-bottom: 5px;
-        }
-
-        .project a {
-            display: inline-block;
-            margin-top: 5px;
-            color: #333;
-            text-decoration: none;
-            background: #f4f4f4;
-            padding: 5px 10px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-        }
-
-        .project a:hover {
-            background: #e4e4e4;
-        }
-
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Welcome to My GitHub Page</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! I'm a developer who loves coding and creating new projects. This is my GitHub page where I showcase my work and share my experiences.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Project 1</h3>
-            <p>A description of my first project.</p>
-            <a href="https://github.com/your-username/project-1" target="_blank">View on GitHub</a>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" title="GitHub Web Notifier"><i class="fa fa-bell-o"></i> GHWN</a>
         </div>
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>A description of my second project.</p>
-            <a href="https://github.com/your-username/project-2" target="_blank">View on GitHub</a>
-        </div>
-    </section>
+        <span id="form"></span>
+      </div>
+    </nav>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>You can reach me at: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-    </section>
+    <!-- index view -->
+    <div class="container" id="index">
 
-    <footer>
-        <p>© 2024 Your Name. All rights reserved.</p>
+      <div id="alert" class="alert alert-warning hidden" role="alert">
+        Sorry, this browser doesn't seem to support desktop notification.
+      </div>
+
+      <div class="page-header">
+        <h1>Desktop notifications for GitHub</h1>
+      </div>
+
+      <p>
+        <img class="hidden-xs img-responsive " src="screenshot.png">
+        <img class="visible-xs-inline img-responsive img-center" src="screenshot-xs.png">
+      </p>
+
+      <hr>
+
+      <p>
+        <strong>Nothing to install</strong>, simply enter your GitHub username and never miss something (<strong>private repositories supported</strong>).
+      </p>
+      <p>
+        Works on OS X, Linux and Windows.
+      </p>
+
+      <hr>
+
+      <p>
+        <i class="fa fa-thumb-tack"></i>
+        Pin this tab to receive notifications when you open your browser.
+      </p>
+
+      <p>
+        <i class="fa fa-clock-o"></i>
+        New events are fetched every minute.
+      </p>
+
+
+    </div>
+
+    <!-- list view -->
+    <div class="container" id="list"></div>
+
+    <footer class="footer">
+      <div class="container">
+            <p class="text-muted">
+              GitHub Web Notifier
+              <i class="fa fa-code"></i> with <i class="fa fa-heart-o"></i>
+              by <a href="https://github.com/typicode">typicode</a>
+              <span style="display: inline-block; width: 20px"></span>
+
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://typicode.github.io/ghwn" data-text="Get desktop notifications for #github (nothing to install)" data-via="typicode" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+              
+              <iframe src="https://ghbtns.com/github-btn.html?user=typicode&repo=ghwn&type=star&count=false" frameborder="0" scrolling="0" width="50px" height="20px"></iframe>
+            </p>
+      </div>
     </footer>
-</body>
-</html>
 
+    <!-- Form template -->
+    <script id="form-template" type="text/html">
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" id="input" class="form-control" name="name" placeholder="Your GitHub username" autocapitalize="off">
+        </div>
+        <button type="submit" class="btn btn-success">Watch</button>
+      </form>
+    </script>
+
+    <!-- List template -->
+    <script id="list-template" type="text/html">
+      <p><em>Watching... (refreshed every minute)</em></p>
+      <hr>
+      <% _.each(collection, function (model) { %>
+        <div class="item">
+          <p>
+            <strong><a href="<%= eventURL(model) %>" target="_blank"><%= model.type %></a></strong>
+            on <a href="https://github.com/<%= model.repo.name %>" target="_blank"><%= model.repo.name %></a>
+            by <a href="https://github.com/<%= model.actor.login %>" target="_blank"><img src="<%= model.actor.avatar_url %>" class="avatar" /> <%= model.actor.login %></a>
+            at <%= new Date(model.created_at).toLocaleTimeString() %>
+          </p>
+        </div>
+      <% }); %>
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.0/backbone-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/tinycon/0.5/tinycon.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ifvisible/1.0.3/ifvisible.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-44497010-5', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>

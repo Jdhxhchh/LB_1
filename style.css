@@ -1,0 +1,29 @@
+.container {
+  max-width: 760px;
+}
+
+#index {
+  padding-top: 0;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item {
+  border-bottom: 1px solid #F5F5F5;
+  margin-bottom: 10px;
+}
+
+/* Social buttons */
+iframe {
+  vertical-align: bottom;
+}
+
+.img-center {
+  margin: 0 auto;
+}
+
+.avatar {
+  width: 20px;
+}
